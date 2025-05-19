@@ -1076,15 +1076,24 @@ alertmanager:
     ## Assign custom affinity rules to the alertmanager instance
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
     ##
+    # affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #       - matchExpressions:
+    #           - key: kubernetes.io/system
+    #             operator: In
+    #             values:
+    #               - monitoring
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-              - key: kubernetes.io/system
-                operator: In
-                values:
-                  - monitoring
+            - matchExpressions:
+                - key: kubernetes.io/system
+                  operator: In
+                  values:
+                    - monitoring
 
     ## If specified, the pod's tolerations.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
@@ -2806,10 +2815,10 @@ prometheusOperator:
       ## Assign custom affinity rules to the prometheus operator
       ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
       ##
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
             - matchExpressions:
                 - key: kubernetes.io/system
                   operator: In
@@ -3162,14 +3171,14 @@ prometheusOperator:
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
   ##
   affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/system
-              operator: In
-              values:
-                - monitoring
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/system
+                  operator: In
+                  values:
+                    - monitoring
 
   dnsConfig: {}
     # nameservers:
@@ -4217,11 +4226,11 @@ prometheus:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-              - key: kubernetes.io/system
-                operator: In
-                values:
-                  - monitoring
+            - matchExpressions:
+                - key: kubernetes.io/system
+                  operator: In
+                  values:
+                    - monitoring
               
 
     ## The remote_read spec configuration for Prometheus.
@@ -5210,11 +5219,11 @@ thanosRuler:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-              - key: kubernetes.io/system
-                operator: In
-                values:
-                  - monitoring
+            - matchExpressions:
+                - key: kubernetes.io/system
+                  operator: In
+                  values:
+                    - monitoring
 
 
     ## If specified, the pod's tolerations.
