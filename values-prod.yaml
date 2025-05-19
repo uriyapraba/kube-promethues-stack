@@ -1076,25 +1076,24 @@ alertmanager:
     ## Assign custom affinity rules to the alertmanager instance
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
     ##
-    affinity: {}
-    # nodeAffinity:
-    #   requiredDuringSchedulingIgnoredDuringExecution:
-    #     nodeSelectorTerms:
-    #     - matchExpressions:
-    #       - key: kubernetes.io/e2e-az-name
-    #         operator: In
-    #         values:
-    #         - e2e-az1
-    #         - e2e-az2
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/system
+              operator: In
+              values:
+              - monitoring
 
     ## If specified, the pod's tolerations.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
     ##
-    tolerations: []
-    # - key: "key"
-    #   operator: "Equal"
-    #   value: "value"
-    #   effect: "NoSchedule"
+    tolerations:
+      - key: "node-role"
+        operator: "Equal"
+        value: "monitoring"
+        effect: "NoSchedule"
 
     ## If specified, the pod's topology spread constraints.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
@@ -2798,25 +2797,25 @@ prometheusOperator:
       ## Tolerations for use with node taints
       ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
       ##
-      tolerations: []
-      # - key: "key"
-      #   operator: "Equal"
-      #   value: "value"
-      #   effect: "NoSchedule"
+    tolerations:
+      - key: "node-role"
+        operator: "Equal"
+        value: "monitoring"
+        effect: "NoSchedule"
 
       ## Assign custom affinity rules to the prometheus operator
       ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
       ##
-      affinity: {}
-        # nodeAffinity:
-        #   requiredDuringSchedulingIgnoredDuringExecution:
-        #     nodeSelectorTerms:
-        #     - matchExpressions:
-        #       - key: kubernetes.io/e2e-az-name
-        #         operator: In
-        #         values:
-        #         - e2e-az1
-      #         - e2e-az2
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/system
+                operator: In
+                values:
+                - monitoring
+              
       dnsConfig: {}
         # nameservers:
         #   - 1.2.3.4
@@ -3153,25 +3152,25 @@ prometheusOperator:
   ## Tolerations for use with node taints
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
   ##
-  tolerations: []
-  # - key: "key"
-  #   operator: "Equal"
-  #   value: "value"
-  #   effect: "NoSchedule"
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "monitoring"
+      effect: "NoSchedule"
 
   ## Assign custom affinity rules to the prometheus operator
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
   ##
-  affinity: {}
-    # nodeAffinity:
-    #   requiredDuringSchedulingIgnoredDuringExecution:
-    #     nodeSelectorTerms:
-    #     - matchExpressions:
-    #       - key: kubernetes.io/e2e-az-name
-    #         operator: In
-    #         values:
-    #         - e2e-az1
-    #         - e2e-az2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/system
+            operator: In
+            values:
+            - monitoring
+
   dnsConfig: {}
     # nameservers:
     #   - 1.2.3.4
@@ -4214,16 +4213,16 @@ prometheus:
     ## Assign custom affinity rules to the prometheus instance
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
     ##
-    affinity: {}
-    # nodeAffinity:
-    #   requiredDuringSchedulingIgnoredDuringExecution:
-    #     nodeSelectorTerms:
-    #     - matchExpressions:
-    #       - key: kubernetes.io/e2e-az-name
-    #         operator: In
-    #         values:
-    #         - e2e-az1
-    #         - e2e-az2
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/system
+              operator: In
+              values:
+              - monitoring
+              
 
     ## The remote_read spec configuration for Prometheus.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#remotereadspec
@@ -5207,25 +5206,25 @@ thanosRuler:
     ## Assign custom affinity rules to the thanosRuler instance
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
     ##
-    affinity: {}
-    # nodeAffinity:
-    #   requiredDuringSchedulingIgnoredDuringExecution:
-    #     nodeSelectorTerms:
-    #     - matchExpressions:
-    #       - key: kubernetes.io/e2e-az-name
-    #         operator: In
-    #         values:
-    #         - e2e-az1
-    #         - e2e-az2
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/system
+              operator: In
+              values:
+              - monitoring
+
 
     ## If specified, the pod's tolerations.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
     ##
-    tolerations: []
-    # - key: "key"
-    #   operator: "Equal"
-    #   value: "value"
-    #   effect: "NoSchedule"
+    tolerations:
+      - key: "node-role"
+        operator: "Equal"
+        value: "monitoring"
+        effect: "NoSchedule"
 
     ## If specified, the pod's topology spread constraints.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
