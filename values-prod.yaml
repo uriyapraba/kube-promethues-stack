@@ -1081,10 +1081,10 @@ alertmanager:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
-            - key: kubernetes.io/system
-              operator: In
-              values:
-              - monitoring
+              - key: kubernetes.io/system
+                operator: In
+                values:
+                  - monitoring
 
     ## If specified, the pod's tolerations.
     ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
@@ -2811,10 +2811,10 @@ prometheusOperator:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: kubernetes.io/system
-                operator: In
-                values:
-                - monitoring
+                - key: kubernetes.io/system
+                  operator: In
+                  values:
+                    - monitoring
               
       dnsConfig: {}
         # nameservers:
@@ -3166,10 +3166,10 @@ prometheusOperator:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: kubernetes.io/system
-            operator: In
-            values:
-            - monitoring
+            - key: kubernetes.io/system
+              operator: In
+              values:
+                - monitoring
 
   dnsConfig: {}
     # nameservers:
@@ -4218,10 +4218,10 @@ prometheus:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
-            - key: kubernetes.io/system
-              operator: In
-              values:
-              - monitoring
+              - key: kubernetes.io/system
+                operator: In
+                values:
+                  - monitoring
               
 
     ## The remote_read spec configuration for Prometheus.
@@ -5211,10 +5211,10 @@ thanosRuler:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
-            - key: kubernetes.io/system
-              operator: In
-              values:
-              - monitoring
+              - key: kubernetes.io/system
+                operator: In
+                values:
+                  - monitoring
 
 
     ## If specified, the pod's tolerations.
